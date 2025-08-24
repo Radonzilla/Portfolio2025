@@ -166,15 +166,16 @@ function addGlitchEffect(element) {
 }
 
 // Parallax effect for hero section with fade out
+// Parallax effect for hero section with improved fade timing
 function handleParallax() {
     const scrolled = window.pageYOffset;
     const parallaxElements = document.querySelectorAll('.hero-content');
     const heroDescription = document.querySelector('.hero-description');
     const speed = 0.5;
     
-    // Calculate fade based on scroll position
-    const fadeStart = 100; // Start fading after 100px of scroll
-    const fadeEnd = 400;   // Complete fade at 400px of scroll
+    // More generous fade timing - gives users more time to read
+    const fadeStart = 300; // Start fading after 300px of scroll (was 100px)
+    const fadeEnd = 800;   // Complete fade at 800px of scroll (was 400px)
     const fadeRange = fadeEnd - fadeStart;
     
     parallaxElements.forEach(element => {
@@ -185,16 +186,18 @@ function handleParallax() {
     if (heroDescription) {
         if (scrolled <= fadeStart) {
             heroDescription.style.opacity = '1';
+            heroDescription.style.filter = 'blur(0px)';
         } else if (scrolled >= fadeEnd) {
             heroDescription.style.opacity = '0';
+            heroDescription.style.filter = 'blur(5px)';
         } else {
             const fadeProgress = (scrolled - fadeStart) / fadeRange;
             heroDescription.style.opacity = 1 - fadeProgress;
+            
+            // Reduced blur effect - less aggressive
+            const blurAmount = Math.min(fadeProgress * 3, 3); // Max 3px blur instead of 5px
+            heroDescription.style.filter = `blur(${blurAmount}px)`;
         }
-        
-        // Also add a slight blur effect for extra smoothness
-        const blurAmount = Math.min((scrolled / fadeEnd) * 5, 5);
-        heroDescription.style.filter = `blur(${blurAmount}px)`;
     }
 }
 
