@@ -174,8 +174,8 @@ function handleParallax() {
     const speed = 0.5;
     
     // More generous fade timing - gives users more time to read
-    const fadeStart = 300; // Start fading after 300px of scroll (was 100px)
-    const fadeEnd = 800;   // Complete fade at 800px of scroll (was 400px)
+    const fadeStart = 800; // Start fading after 300px of scroll (was 100px)
+    const fadeEnd = 1300;   // Complete fade at 800px of scroll (was 400px)
     const fadeRange = fadeEnd - fadeStart;
     
     parallaxElements.forEach(element => {
