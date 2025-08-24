@@ -16,9 +16,8 @@
     --gradient-main: linear-gradient(135deg, #0066ff 0%, #00d4ff 100%);
     --gradient-accent: linear-gradient(135deg, #ff006e 0%, #00d4ff 100%);
 }
-.hero {
-    min-height: 120vh; /* Increased from 100vh to give more space */
-}
+
+
 
 .hero-description {
     margin-bottom: 4rem; /* Adds space below the paragraph */
@@ -90,13 +89,10 @@ body {
 
 /* Hero Section */
 .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background: radial-gradient(ellipse at center, rgba(0, 102, 255, 0.1) 0%, transparent 50%);
+    min-height: 120vh; /* gives more breathing room */
+    padding: 6rem 2rem; /* adds spacing for text */
 }
+
 
 .hero-container {
     max-width: 1000px;
